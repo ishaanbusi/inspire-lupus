@@ -78,6 +78,14 @@ const instagramPosts = [
   },
 ];
 
+const advisoryBoard = [
+  { name: "Dr. Amita Aggarwal", title: "Executive Director", inst: "AIIMS Bibinagar", img: "/images/amita.jpeg" },
+  { name: "Dr. Liza Rajasekhar", title: "Dean & Head of Dept.", inst: "NIMS, Hyderabad", img: "/images/liza.jpegg" },
+  { name: "Dr. Vineeta Shobha", title: "Professor & Head of Dept.", inst: "St. John's, Bangalore", img: "/images/veneeta.jpeg" },
+  { name: "Dr. Ranjan Gupta", title: "Associate Professor", inst: "AIIMS, New Delhi", img: "/images/ranjan.jpeg" },
+  { name: "Dr. Anushka Prabhudesai", title: "Pediatric Rheumatologist", inst: "Mumbai", img: "/images/anushkaprabhudesai.jpeg" },
+];
+
 // ── X / Twitter Post Data ─────────────────────────────────────────────────────
 
 const xPosts = [
@@ -192,7 +200,7 @@ export default function Home() {
               <div className="aspect-[4/5] rounded-[3rem] md:rounded-[6rem] rounded-tr-3xl rounded-bl-3xl overflow-hidden relative z-10 shadow-2xl"
                 style={{ boxShadow: '0 32px 64px rgba(82,46,120,0.14)' }}>
                 <img
-                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1000&auto=format&fit=crop"
+                  src="/images/mudita-shrivastava.jpeg"
                   alt="Doctor speaking with a patient"
                   className="w-full h-full object-cover"
                 />
@@ -375,6 +383,53 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="py-24 px-6 bg-white">
+  <div className="max-w-6xl mx-auto">
+    {/* Section Header */}
+    <div className="flex flex-col items-center text-center mb-20">
+      <span className="text-sm font-bold tracking-[0.2em] uppercase mb-4" style={{ color: '#832DCE' }}>
+        Medical Advisory Board
+      </span>
+      <h2 className="text-4xl md:text-5xl font-extrabold text-[#1F2A44] mb-6">
+        Expert Guidance for Our Mission
+      </h2>
+      <div className="w-20 h-1 rounded-full" style={{ background: 'linear-gradient(90deg, #832DCE, #522E78)' }} />
+    </div>
+
+    {/* Grid Container */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {advisoryBoard.map((doc, i) => (
+        <div 
+          key={i} 
+          className="group relative bg-[#FAF9FE] rounded-[2rem] p-8 flex flex-col items-center text-center transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-[#522E78]/5"
+        >
+          {/* Image Container with Border Accent */}
+          <div className="relative mb-6">
+            <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg">
+              <img 
+                src={doc.img} 
+                alt={doc.name} 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            </div>
+            {/* Small decorative ring */}
+            <div className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full border-2 border-[#FAF9FE]" style={{ background: '#832DCE' }} />
+          </div>
+
+          <h4 className="text-xl font-bold text-[#1F2A44] mb-1">{doc.name}</h4>
+          <p className="text-[#522E78] font-semibold text-sm mb-2">{doc.title}</p>
+          <p className="text-[#6B7280] text-sm font-medium">{doc.inst}</p>
+          
+          <button className="mt-6 text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: '#832DCE' }}>
+            View Profile →
+          </button>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* ── 8. SOCIAL MEDIA SECTION ── */}
       <section className="py-24 px-6" style={{ background: '#FAF9FE' }}>
